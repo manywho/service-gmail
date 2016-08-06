@@ -1,2 +1,2 @@
 
-web: java -Dserver.port=${PORT:-8080} ${JAVA_OPTS} -jar target/gmail-*.jar
+web: java -Dserver.port=${PORT:-8080} ${JAVA_OPTS} -jar target/gmail*.jar

@@ -2,6 +2,6 @@
   "name": "GMail Service for ManyWho",
   "description": "A plugin that enables integration of GMail into ManyWho Flows",
   "repository": "https://github.com/josecollazzi/service-gmail",
-  "logo": "",
+  "logo": "https://avatars1.githubusercontent.com/u/1303399?v=3&s=460",
   "keywords": ["manywho", "gmail", "plugin", "workflow"]
 }

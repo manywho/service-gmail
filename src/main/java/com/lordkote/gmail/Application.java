@@ -21,7 +21,8 @@ public class Application extends ServiceApplication {
 
     public static void main(String[] args) {
         UndertowJaxrsServer server = new UndertowJaxrsServer();
-        Undertow.Builder serverBuilder = Undertow.builder().addHttpListener(8080, "0.0.0.0");
+        final String port = System.getProperty("server.port") != null ? System.getProperty("server.port") : "8080";
+        Undertow.Builder serverBuilder = Undertow.builder().addHttpListener(Integer.valueOf(port), "0.0.0.0");
         server.start(serverBuilder);
         server.deploy(new Application(), "/api/gmail/1");
     }
