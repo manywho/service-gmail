@@ -16,7 +16,7 @@ Of course it will allow you to integrate your Flows with [GMail](https://www.gma
 ## Running
 (recommended for beginners)
 
-The service is current running in Heroku you can installed in your ManyWho account using this url "http://blabla.com"
+The service is current running in Heroku you can installed in your ManyWho account using this url "https://blooming-shelf-71026.herokuapp.com/api/gmail/1"
 
 
 ## Running the service by yourself
