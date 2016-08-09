@@ -20,12 +20,10 @@ import javax.ws.rs.Produces;
 @Produces("application/json")
 public class AuthController extends AbstractOauth2Controller {
     private AuthManager authManager;
-    private GmailAppConfig oauth2Provider;
 
     @Inject
     public AuthController(GmailAppConfig oauth2Provider, AuthManager authManager) {
         super(oauth2Provider);
-        this.oauth2Provider = oauth2Provider;
         this.authManager = authManager;
     }
 

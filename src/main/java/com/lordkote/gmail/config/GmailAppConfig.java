@@ -1,5 +1,6 @@
 package com.lordkote.gmail.config;
 
+import com.google.api.services.gmail.GmailScopes;
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
 import com.manywho.sdk.services.oauth.AbstractOauth2Provider;
@@ -18,6 +19,7 @@ public class GmailAppConfig extends AbstractOauth2Provider {
 
     private JSONObject jsonObject;
 
+
     public GmailAppConfig() {
         jsonObject = null;
     }
@@ -29,7 +31,13 @@ public class GmailAppConfig extends AbstractOauth2Provider {
 
     @Override
     public String getAuthorizationUrl(OAuthConfig oAuthConfig) {
-        return getJsonObjectWeb().getString("auth_uri");
+        String url = getJsonObjectWeb().getString("auth_uri");
+        String client_id = getClientId();
+        String response_type = "code";
+        String scope = GmailScopes.GMAIL_SEND + " " + "email" + " " + "openid";
+
+        return String.format("%s?client_id=%s&response_type=%s&scope=%s",
+                url, client_id, response_type, scope);
     }
 
     @Override
