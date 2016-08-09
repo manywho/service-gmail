@@ -32,9 +32,10 @@ Example of creation of environment variable
 GMAIL_APP_CREDENTIALS = {"web":{"client_id":"xxx-xxx.apps.googleusercontent.com","project_id":"xxx","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://accounts.google.com/o/oauth2/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"xxx","redirect_uris":["https://flow.manywho.com/api/run/1/oauth2"],"javascript_origins":["https://flow.manywho.com"]}}
 ```
 
-## Running the service using Heroku
+### Running the service using Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+You will be also asked for GMAIL_APP_CREDENTIALS
 
 ## Contributing
 
