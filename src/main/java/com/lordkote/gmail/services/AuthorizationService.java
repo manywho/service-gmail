@@ -8,6 +8,7 @@ import com.manywho.sdk.entities.run.elements.type.ObjectCollection;
 import com.manywho.sdk.entities.run.elements.type.Property;
 import com.manywho.sdk.entities.run.elements.type.PropertyCollection;
 import com.manywho.sdk.entities.security.AuthenticatedWho;
+
 import javax.inject.Inject;
 
 /**
@@ -28,40 +29,39 @@ public class AuthorizationService {
                 url, client_id, response_type, scope);
     }
 
-        public String getUserAuthorizationStatus(Authorization authorization, AuthenticatedWho user) {
-            switch (authorization.getGlobalAuthenticationType()) {
-                case Public:
+    public String getUserAuthorizationStatus(Authorization authorization, AuthenticatedWho user) {
+        switch (authorization.getGlobalAuthenticationType()) {
+            case Public:
+                return "200";
+            case AllUsers:
+                if (!user.getUserId().equalsIgnoreCase("PUBLIC_USER")) {
                     return "200";
-                case AllUsers:
-                    if (!user.getUserId().equalsIgnoreCase("PUBLIC_USER")) {
-                        return "200";
-                    } else {
-                        return "401";
-                    }
-                case Specified:
-                    if (!user.getUserId().equalsIgnoreCase("PUBLIC_USER")) {
-                        return "401";
-                    }
-                default:
+                } else {
                     return "401";
-            }
+                }
+            case Specified:
+                if (!user.getUserId().equalsIgnoreCase("PUBLIC_USER")) {
+                    return "401";
+                }
+            default:
+                return "401";
         }
+    }
 
-        public ObjectCollection loadGroups(String enterpriseId)  {
-            return new ObjectCollection();
-        }
+    public ObjectCollection loadGroups(String enterpriseId) {
+        return new ObjectCollection();
+    }
 
-        public Object loadGroupAttributes() {
-            PropertyCollection properties = new PropertyCollection();
-            properties.add(new Property("Label", "Users"));
-            properties.add(new Property("Value", "users"));
+    public Object loadGroupAttributes() {
+        PropertyCollection properties = new PropertyCollection();
+        properties.add(new Property("Label", "Users"));
+        properties.add(new Property("Value", "users"));
 
-            Object object = new Object();
-            object.setDeveloperName("AuthenticationAttribute");
-            object.setExternalId("users");
-            object.setProperties(properties);
+        Object object = new Object();
+        object.setDeveloperName("AuthenticationAttribute");
+        object.setExternalId("users");
+        object.setProperties(properties);
 
-            return object;
-        }
+        return object;
     }
 }
