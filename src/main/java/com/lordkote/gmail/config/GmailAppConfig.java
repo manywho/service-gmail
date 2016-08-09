@@ -2,7 +2,10 @@ package com.lordkote.gmail.config;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;
+import com.manywho.sdk.services.oauth.AbstractOauth2Provider;
 import org.json.JSONObject;
+import org.scribe.model.OAuthConfig;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -11,7 +14,7 @@ import java.util.List;
 /**
  * Created by Jose on 06/08/2016.
  */
-public class GmailAppConfig {
+public class GmailAppConfig extends AbstractOauth2Provider {
 
     private JSONObject jsonObject;
 
@@ -19,7 +22,18 @@ public class GmailAppConfig {
         jsonObject = null;
     }
 
-    public String getApplicationName() {
+    @Override
+    public String getAccessTokenEndpoint() {
+        return null;
+    }
+
+    @Override
+    public String getAuthorizationUrl(OAuthConfig oAuthConfig) {
+        return getJsonObjectWeb().getString("auth_uri");
+    }
+
+    @Override
+    public String getName() {
         return "Oauth2";
     }
 
@@ -27,13 +41,16 @@ public class GmailAppConfig {
 
     public String getProjectId(){ return getJsonObjectWeb().getString("project_id");}
 
-    public String getAuthUri(){ return getJsonObjectWeb().getString("auth_uri");}
-
     public String getTokenUri(){ return getJsonObjectWeb().getString("token_uri");}
 
     public String getAuthProviderX509CertUrl(){ return getJsonObjectWeb().getString("auth_provider_x509_cert_url");}
 
     public String getClientSecret(){ return getJsonObjectWeb().getString("client_secret");}
+
+    @Override
+    public String getRedirectUri() {
+        return null;
+    }
 
     public List<String> getRedirectUris() {
         List<String> redirectsUris = new ArrayList<>();

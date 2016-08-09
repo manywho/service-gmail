@@ -1,28 +1,30 @@
 package com.lordkote.gmail.services;
 
-import com.google.api.services.oauth2.model.Userinfoplus;
-import com.manywho.sdk.api.security.AuthenticatedWhoResult;
+import com.manywho.sdk.entities.security.AuthenticatedWhoResult;
+import com.manywho.sdk.enums.AuthenticationStatus;
 
-import java.util.UUID;
+import javax.inject.Inject;
 
 /**
- * Created by Jose on 02/08/2016.
+ * Created by laura on 08/08/2016.
  */
-public class AuthenticationService {
-    public AuthenticatedWhoResult authenticateUser(Userinfoplus userinfo, String token) {
-        AuthenticatedWhoResult result = new AuthenticatedWhoResult();
-        result.setDirectoryId(userinfo.getId());
-        result.setDirectoryName(userinfo.getId());
-        result.setEmail(userinfo.getEmail());
-        result.setFirstName("example");
-        result.setIdentityProvider("GMAIL");
-        result.setLastName("example");
-        result.setStatus(AuthenticatedWhoResult.AuthenticationStatus.Authenticated);
-        result.setTenantName(userinfo.getEmail());
-        result.setToken(token);
-        result.setUserId(userinfo.getId());
-        result.setUsername(userinfo.getEmail());
 
-        return result;
+public class AuthenticationService {
+
+    public AuthenticatedWhoResult buildAuthenticatedWhoResult(String providerName, String email, String name, String clientId, String id, String accessToken) {
+        AuthenticatedWhoResult authenticatedWhoResult = new AuthenticatedWhoResult();
+        authenticatedWhoResult.setDirectoryId(providerName);
+        authenticatedWhoResult.setDirectoryName(providerName);
+        authenticatedWhoResult.setEmail(email);
+        authenticatedWhoResult.setFirstName(name);
+        authenticatedWhoResult.setIdentityProvider(providerName);
+        authenticatedWhoResult.setLastName(name);
+        authenticatedWhoResult.setStatus(AuthenticationStatus.Authenticated);
+        authenticatedWhoResult.setTenantName(clientId);
+        authenticatedWhoResult.setToken(accessToken);
+        authenticatedWhoResult.setUserId(id);
+        authenticatedWhoResult.setUsername(email);
+
+        return authenticatedWhoResult;
     }
 }

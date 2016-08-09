@@ -14,9 +14,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-/**
- * Created by Jose on 06/08/2016.
- */
 public class EmailService {
 
     public void sendEmail(String to, String from, String subject, String body, String userId,
