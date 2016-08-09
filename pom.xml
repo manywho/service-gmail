@@ -8,14 +8,12 @@
     <artifactId>gmail-service</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-
     <dependencies>
         <dependency>
             <groupId>com.manywho</groupId>
             <artifactId>sdk</artifactId>
             <version>1.24.0</version>
         </dependency>
-
         <dependency>
             <groupId>com.google.apis</groupId>
             <artifactId>google-api-services-gmail</artifactId>

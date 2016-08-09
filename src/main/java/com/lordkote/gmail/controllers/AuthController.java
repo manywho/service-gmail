@@ -8,6 +8,7 @@ import com.manywho.sdk.entities.security.AuthenticatedWhoResult;
 import com.manywho.sdk.entities.security.AuthenticationCredentials;
 import com.manywho.sdk.services.annotations.AuthorizationRequired;
 import com.manywho.sdk.services.controllers.AbstractOauth2Controller;
+import com.manywho.sdk.services.oauth.AbstractOauth2Provider;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -19,12 +20,12 @@ import javax.ws.rs.Produces;
 @Consumes("application/json")
 @Produces("application/json")
 public class AuthController extends AbstractOauth2Controller {
+    @Inject
     private AuthManager authManager;
 
     @Inject
-    public AuthController(GmailAppConfig oauth2Provider, AuthManager authManager) {
-        super(oauth2Provider);
-        this.authManager = authManager;
+    public AuthController(AbstractOauth2Provider gmailAppConfig) {
+        super(gmailAppConfig);
     }
 
     @Override

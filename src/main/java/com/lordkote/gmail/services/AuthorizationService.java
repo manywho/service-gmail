@@ -8,6 +8,7 @@ import com.manywho.sdk.entities.run.elements.type.ObjectCollection;
 import com.manywho.sdk.entities.run.elements.type.Property;
 import com.manywho.sdk.entities.run.elements.type.PropertyCollection;
 import com.manywho.sdk.entities.security.AuthenticatedWho;
+import com.manywho.sdk.services.oauth.AbstractOauth2Provider;
 
 import javax.inject.Inject;
 
@@ -15,19 +16,6 @@ import javax.inject.Inject;
  * Created by Jose on 02/08/2016.
  */
 public class AuthorizationService {
-    @Inject
-    private GmailAppConfig gmailAppConfig;
-
-
-    private String createLoginUrl() {
-        String url = "https://accounts.google.com/o/oauth2/v2/auth";
-        String client_id = gmailAppConfig.getClientId();
-        String response_type = "code";
-        String scope = GmailScopes.GMAIL_SEND + " " + "email" + " " + "openid";
-
-        return String.format("%s?client_id=%s&response_type=%s&scope=%s",
-                url, client_id, response_type, scope);
-    }
 
     public String getUserAuthorizationStatus(Authorization authorization, AuthenticatedWho user) {
         switch (authorization.getGlobalAuthenticationType()) {

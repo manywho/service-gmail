@@ -35,13 +35,13 @@ public class AuthManager {
     private PropertyCollectionParser propertyParser;
 
     @Inject
-    private GmailAppConfig gmailAppConfig;
+    private AbstractOauth2Provider gmailAppConfig;
 
     public AuthenticatedWhoResult authenticateUser(AuthenticationCredentials credentials) throws Exception {
         GoogleTokenResponse response =
                 new GoogleAuthorizationCodeTokenRequest(new NetHttpTransport(), new JacksonFactory(),
                         gmailAppConfig.getClientId(), gmailAppConfig.getClientSecret(),
-                        credentials.getCode(), gmailAppConfig.getRedirectUris().get(0))
+                        credentials.getCode(), gmailAppConfig.getRedirectUri())
                         .execute();
 
         System.out.println("Access token: " + response.getAccessToken());
@@ -56,7 +56,7 @@ public class AuthManager {
             return authenticationService.buildAuthenticatedWhoResult(
                     gmailAppConfig.getName(),
                     userInformation.getEmail(),
-                    userInformation.getName(),
+                    userInformation.getEmail(),
                     gmailAppConfig.getClientId(),
                     userInformation.getId(),
                     response.getAccessToken()

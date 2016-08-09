@@ -1,0 +1,2 @@
+service:
+  image: docker.josecollazzi.net/josecollazzi/service-gmail:$IMAGE_TAG

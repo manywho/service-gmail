@@ -57,7 +57,7 @@ public class GmailAppConfig extends AbstractOauth2Provider {
 
     @Override
     public String getRedirectUri() {
-        return null;
+        return getRedirectUris().get(0);
     }
 
     public List<String> getRedirectUris() {
