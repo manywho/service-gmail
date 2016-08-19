@@ -1,7 +1,6 @@
-package com.lordkote.gmail.controllers;
+package com.manywho.services.gmail.controllers;
 
-import com.lordkote.gmail.config.GmailAppConfig;
-import com.lordkote.gmail.managers.AuthManager;
+import com.manywho.services.gmail.managers.AuthManager;
 import com.manywho.sdk.entities.run.elements.type.ObjectDataRequest;
 import com.manywho.sdk.entities.run.elements.type.ObjectDataResponse;
 import com.manywho.sdk.entities.security.AuthenticatedWhoResult;

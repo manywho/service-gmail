@@ -1,9 +1,7 @@
-package com.lordkote.gmail.services;
+package com.manywho.services.gmail.services;
 
 import com.manywho.sdk.entities.security.AuthenticatedWhoResult;
 import com.manywho.sdk.enums.AuthenticationStatus;
-
-import javax.inject.Inject;
 
 /**
  * Created by laura on 08/08/2016.

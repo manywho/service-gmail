@@ -1,16 +1,17 @@
-package com.lordkote.gmail.controllers;
+package com.manywho.services.gmail.controllers;
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.oauth2.Oauth2;
 import com.google.api.services.oauth2.model.Userinfoplus;
-import com.lordkote.gmail.actions.SendEmailSimple;
-import com.lordkote.gmail.services.EmailService;
+import com.manywho.services.gmail.actions.SendEmailSimple;
+import com.manywho.services.gmail.services.EmailService;
 import com.manywho.sdk.entities.run.elements.config.ServiceRequest;
 import com.manywho.sdk.entities.run.elements.config.ServiceResponse;
 import com.manywho.sdk.enums.InvokeType;
 import com.manywho.sdk.services.controllers.AbstractController;
+
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;

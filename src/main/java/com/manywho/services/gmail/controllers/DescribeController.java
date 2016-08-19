@@ -1,4 +1,4 @@
-package com.lordkote.gmail.controllers;
+package com.manywho.services.gmail.controllers;
 
 import com.manywho.sdk.entities.describe.DescribeServiceResponse;
 import com.manywho.sdk.entities.run.elements.config.ServiceRequest;

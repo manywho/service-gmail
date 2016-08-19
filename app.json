@@ -1,7 +1,7 @@
 {
   "name": "GMail Service for ManyWho",
   "description": "A plugin that enables integration of GMail into ManyWho Flows",
-  "repository": "https://github.com/josecollazzi/service-gmail",
+  "repository": "https://github.com/manywho/service-gmail.git",
   "logo": "https://avatars1.githubusercontent.com/u/1303399?v=3&s=460",
   "env": {
     "GMAIL_APP_CREDENTIALS": {
